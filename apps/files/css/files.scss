@@ -6,6 +6,8 @@
  * See the COPYING-README file.
  */
 
+ $my-line-height: 16px;
+
 /* FILE MENU */
 .actions {
 	padding: 5px;
@@ -302,8 +304,8 @@ table th.column-last, table td.column-last {
 	box-sizing: border-box;
 	position: relative;
 	/* this can not be just width, both need to be set … table styling */
-	min-width: 130px;
-	max-width: 130px;
+	min-width: 250px;
+	max-width: 250px;
 }
 
 #app-content-files thead,
@@ -722,7 +724,7 @@ a.action > img {
 	color: var(--color-text-maxcontrast);
 	/* add whitespace to bottom of files list to correctly show dropdowns */
 	$action-menu-items-count: 7; // list view has currently max 7 items in its action menu 
-	height: 44px * ($action-menu-items-count + 0.5); // 0.5 is added to show some whitespace below
+	height: $my-line-height * ($action-menu-items-count + 0.5); // 0.5 is added to show some whitespace below
 }
 #filestable .filesummary {
 	width: 100%;
@@ -905,8 +907,8 @@ table.dragshadow td.size {
 
 /* GRID */
 #filestable.view-grid:not(.hidden) {
-	$grid-size: 160px;
-	$grid-pad: 14px;
+	$grid-size: 252px;
+	$grid-pad: 0px;
 
 	/* HEADER and MULTISELECT */
 	thead {
@@ -926,14 +928,15 @@ table.dragshadow td.size {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, $grid-size);
 		justify-content: space-around;
-		row-gap: 15px;
-		margin: 15px 0;
+		row-gap: 2px;
+        	column-gap: 2px;
+ 		margin: 0px 0;
 
 		// ensure search still filters tr with .hidden
 		tr:not(.hidden) {
 			display: block;
 			position: relative;
-			height: $grid-size + 44px - $grid-pad;
+			height: $grid-size + $my-line-height - $grid-pad;
 			border-radius: var(--border-radius);
 
 			&:hover, &:focus, &:active,
@@ -1003,10 +1006,10 @@ table.dragshadow td.size {
 
 					.nametext {
 						display: flex;
-						height: 44px;
+						height: 16px;
 						margin-top: $grid-size - $grid-pad;
 						text-align: center;
-						line-height: 44px;
+						line-height: $my-line-height;
 						padding: 0;
 
 						.innernametext {
@@ -1015,6 +1018,7 @@ table.dragshadow td.size {
 							overflow: hidden;
 							text-overflow: ellipsis;
 							white-space: nowrap;
+                                                        font-size: 10px;
 						}
 						&:before {
 							content: '';
@@ -1100,14 +1104,14 @@ table.dragshadow td.size {
 				top: -8px; // half the checkbox width, center on corner of thumbnail
 				left: -8px; // half the checkbox width, center on corner of thumbnail
 				display: flex;
-				width: 44px;
-				height: 44px;
+				width: $my-line-height;
+				height: $my-line-height;
 				z-index: 10;
 				background: transparent;
 
 				label {
-					width: 44px;
-					height: 44px;
+					width: $my-line-height;
+					height: $my-line-height;
 					display: inline-flex;
 					padding: $grid-pad; // like any action icon
 					&::before {
@@ -1145,7 +1149,7 @@ table.dragshadow td.size {
 			display: inline-block;
 			margin: 0 auto;
 			$action-menu-items-count: 9; // grid view has currently max 9 items in its action menu
-			height: 44px * ($action-menu-items-count + 0.5); // 0.5 is added to show some whitespace below
+			height: $my-line-height * ($action-menu-items-count + 0.5); // 0.5 is added to show some whitespace below
 
 			td {
 				padding-top: 50px;
