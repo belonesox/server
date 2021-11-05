@@ -398,7 +398,7 @@ class ShareController extends AuthPublicShareController {
 			$folder->assign('hideFileList', $hideFileList);
 			$folder->assign('publicUploadEnabled', 'no');
 			// default to list view
-			$folder->assign('showgridview', false);
+			$folder->assign('showgridview', true);
 			$folder->assign('uploadMaxFilesize', $maxUploadFilesize);
 			$folder->assign('uploadMaxHumanFilesize', \OCP\Util::humanFileSize($maxUploadFilesize));
 			$folder->assign('freeSpace', $freeSpace);
